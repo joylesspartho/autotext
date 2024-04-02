@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Effect</title>
+  <style>
+    .output {
+      font-family: 'Courier New', monospace;
+      font-size: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #000;
+      padding-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="output"></div>
+
+<script>
+  function autotype() {
+    var txt = 'Hello! I AM Partho Web & Apps Developer';
+    var c = 0;
+
+    return function () {
+      if (c < txt.length) {
+        document.querySelector('.output').innerHTML += txt.charAt(c);
+        c++;
+
+        // Call the returned function after a delay of 200 milliseconds
+        setTimeout(arguments.callee, 200);
+      }
+    };
+  }
+
+  autotype()();  // Initial call to start the auto-typing process
+</script>
+
+</body>
+</html>
